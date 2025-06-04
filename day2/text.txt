@@ -1,0 +1,97 @@
+
+Arrow Functions
+HOFs -> map, filter, reduce and forEach
+Import/Export -> ES6
+
+
+LOs
+1 - React Basics
+2 - Vite Setup
+3 - JSX
+4 - Props and State Lifting
+
+
+React: 
+    React is an JavaScript Libary
+    Use to Build User Interfaces (UI)
+    Single Page Applications (SPA)
+
+Why React? 
+    Componened-Based Structure : Break UI into smaller part
+    Virtual DOM : Improve performance with efficeint rendering 
+    Popular &  Supported  by massive community
+    Great EcoSystem. (Hooks, Redux, React Router)
+
+
+Componened: 
+    A Componened is a function that returns JSX 
+    It is resuable, independent, and encapsulated logic + UI 
+    Name should start with capital later
+
+JSX:
+    JavaScript XML -> similar to html file but it is combination of both HTML + JavaScript 
+
+
+Vite: 
+    Vite is a tool that helps you build, and server modern JavaScript apps (React)
+Why we need vite? 
+create react app (CRA) -> why we shifted to vite 
+
+
+Multiple Cloths -> Componened
+Create a Jacket -> sttiches all Cloths into single jacket (bandle -> load into browser) 
+Jacket's pokcet you want of different color (CRA -> all file will be re andled -> load into browser)
+
+10 - Componened -> 1 sec 
+1000 - Componened -> 10 sec 
+
+
+Vite: 
+   
+Multiple Cloths -> Componened
+Create a Jacket -> gives only files those are needed  
+Jacket's pokcet you want of different color -> only pocket file will change
+
+10 - Componened 1 sec
+1000 - Componened 1 sec 
+
+ESM -> ECMAScript Module -> Import / Export
+
+Building first Vite tool App for React 
+
+syntax to create a vite app 
+npm create vite@latest -> (replacement for npx create react app) 
+
+npm create vite@latest -- --template react 
+
+isEven -> number is even or not
+SPA -> Single page application 
+index.html -> root HTML file 
+App.jsx -> root Componened
+main.jsx -> Entry point: React start from here 
+
+
+There can be many componands in the application -> each  componands return JSX 
+
+1 -> Combination of HTML and JS 
+2 -> class -> className 
+3 -> Self closing tags are mandaotry <img src="link" > not allowed <img src="link" />
+4 -> camelCase -> autofocus -> autoFocus 
+5 -> all tags must return one parent element 
+6 -> JavaScript go inside {} 
+
+Props: 
+    It stands for properties, we can pass props as an arguments to our Componened
+    1 - Read Only 
+    2 - We can Desctrture props 
+
+
+State Lifting:
+    when Multiple componands need to share or coordinate one piece of state 
+    we lift the state up to their common parent. 
+
+
+    counter app -> a componand to show the counter  -> Display
+                   a componand to increase the counter value  -> Button
+                   a parent componand that will hold both -> Display , Button 
+
