@@ -1,0 +1,7 @@
+
+LOs For today's session
+
+Arrow Functions
+HOFs -> map, reduce, filter and forEach
+import/export 
+Utility Function + modular JS
