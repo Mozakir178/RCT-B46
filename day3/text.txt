@@ -1,0 +1,159 @@
+
+Recap:
+    ES6
+    Basics of React 
+    Vite (CRA)
+    Componands 
+    JSX -> {}
+    Props -> pass data to componands 
+    State Uplifting -> whenever two or more or multiple componands share same data or state, 
+    move the state of the variable to the parent
+
+useState -> creating a variable and managing its state 
+
+
+LOs for today
+    What is VDOM
+    Understand DOM vs VDOM
+    Compponand Life Cycle
+    Understand Componand Life Cycle through example
+    Reconciliation
+
+
+1. VDOM -> Copy of actual DOM -> React 
+a light weight javaScript object, it mimics the structure of actual  DOM
+
+body
+  | - button -> whenever button will be clicked, will append username with hello
+  | - p - Hello , user 
+  | - div
+       | - p
+       | - p
+  
+In case of actual DOM -> whenver any changes are happing, those changes will be
+repaint in the brwoser
+
+document.getElementById("username").innerText = "Hello user"
+
+
+VDOM: copy of actual DOM
+body
+  | - button -> whenever button will be clicked, will append username with hello
+  | - p - Hello  
+  | - div
+       | - p
+       | - p
+
+       1st -> p - Hello 
+       2nd -> button clicked -> p -> Hello user -> comparision will happen and p tag will be rerender
+       3rd -> button clicked -> p -> Hello user -> comparision will happen between copy and previous dom only when there is some changes, -> no changes -> react will ignore
+       4th -> button clicked -> p -> Hello user 
+
+    
+    painting your house 
+    you painted you house with blue color 
+    now, you want to change front door to white color 
+
+    paint all the remaining part as blue and door as white 
+    don't change anything just paint the door with white color 
+
+
+
+                        VDOM                DOM 
+    Update cost ->      low                 higer
+    Speed       -> .    faster              slower
+    Used By             React               Venilla JS 
+    Repaint             minimal             on every change 
+
+
+
+    <Example/>
+
+    Componand Life Cycle 
+    Birth , Life , Death 
+    Mount -> It is one of the life cycle stage of componand, in this stage, componad will get inserted in the DOM 
+            it will be visible for first time 
+    Update -> Whenever there are any changes in the componad, componad will update its state -> update stage 
+    UnMount ->  whenver a componand gets removed from the DOM tree, this stage is called as unMount 
+
+
+    The stages a componand go through in its life space 
+    Mount, Update, Unmount 
+
+    without using useEffect
+
+    Vite 
+
+    a componand that is showing a text -> Child
+    inside parent componand -> count -> above 5, will show Child, 
+    until value of count is less than 10 , will keep Child as it is, showing count as well 
+    as soon as count will above 10, will remove Child 
+
+
+Concept of Reconciliation: 
+        In React, Reconciliation is the process of comparing the new Virtual DOM with the privous 
+        VDOM, old VDOM to figer out what to changes need to be made 
+        comparing VDOM with Actual DOM -> wrong 
+
+
+
+React -> VDOM 
+
+
+we actual DOM: DOM a
+body
+  | - button -> whenever button will be clicked, will append username with hello
+  | - p - Hello 
+  | - div
+       | - p
+       | - p
+
+first time it will create VDOM -> VDOM b
+body
+  | - button -> whenever button will be clicked, will append username with hello
+  | - p - Hello 
+  | - div
+       | - p
+       | - p
+   
+
+New VDOM -> VDOM c
+body
+  | - button -> whenever button will be clicked, will append username with hello
+  | - p - Hello , user // after clicking the button 
+  | - div
+       | - p
+       | - p
+
+
+   
+React will compare VDOM c with VDOM b 
+React will find best way possible to reflect these changes in VDOM b 
+all those values need to reflect on UI, will be replace in DOM a 
+now VDOM c will keep record of previous changes 
+
+This process is nothing but reconciliation 
+
+VDOM is light weight JS Object 
+DOM is not light weight Object 
+
+
+
+DOM -> changes -> make those changes directy to DOM -> Venilla JS 
+
+pick 5 kg 1st option
+pick 10 kg 2nd option -> more effort 
+
+let obja = {a:10 , b:20, c:30} ;
+let objb = {a:10 , b:30, c:30} ;
+
+if(obja[b] == objb[b]) -> O(1) -> 100 operation like -> O(1)
+
+
+
+
+DOM -> not simple js object  
+
+
+
+
