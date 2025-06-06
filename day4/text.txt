@@ -1,0 +1,92 @@
+
+
+solving assignment -> stuck -> useState
+-> AI tools -> understand useState -> AI tools will not give answer but the explaination
+
+solving assignment -> stuck -> useState
+copy complete assignment, give to the AI tool -> ask for solution -> AI tool will give complete solution 
+-> you will copy this from AI and submit on Assess -> Interview 
+
+
+
+Recap:
+    VDOM -> 
+    DOM vs VDOM
+    Life Cycle of the Componand:
+        1. Mount:  
+        2. Update
+        3. Unmount
+    Reconciliation: 
+
+
+
+LOs for Today:
+    State 
+    Side Effect
+    Hooks 
+    useState 
+    useEffect
+    (useContext, useMemo, useCallback, useRef)
+    fetch using useEffect
+    basic app to fetch the data from fakestoreAPI and show on UI 
+
+
+
+    State: whatever data a Componand need to remember or manipulate 
+
+    class Componand: componandDidMount() -> state manage -> bit complex 
+    functional Componand: easy to write and maintain -> initally these stateless 
+
+
+    counter app -> count -> state
+
+
+    Side Effect: 
+        once Componand get mount, the Componand will be render our the UI -> fetch the data , Listen Event 
+        all the things like this will come under side effect 
+
+
+
+
+    Resturant -> Menu -> Multiple item on the menu -> Cheif decide to add 1 special item -> Biryani 
+    cheif made the biryani and put that biryani in the kitchen only 
+
+
+    (Hooks:)
+        some special functions, these function will let us hook into React Features (like state, Life Cycle , context)
+        Introduced in React 16.8 
+
+        - Hooks always start with `use`
+        - Always write hooks at the top level of the componand 
+        - never write hooks inside the loops, conditions or nested function 
+        - don't call hooks in normal js function, it should only call from React function 
+
+
+        
+
+    useState: add state to a functional componand -> manage the state of the componand 
+
+    Resturant -> Menu -> Multiple item on the menu -> Cheif decide to add 1 special item -> Biryani 
+    cheif made the biryani and put that biryani in the kitchen only 
+    
+    useState -> will use this useState to add the new state called biryani, setBiryani , intialvalue 
+
+
+    useEffect: it will handle side effect - Once componand is mounted, all the side effected 
+        changes needs to be done, will be taken care by useEffect hook 
+
+        // we want to fetch the data and show on UI 
+
+        fetch -> it will take the API -> bring the data from server through API 
+        // fakestoreAPI -> getProducts 
+
+        fetch -> api -> https://fakestoreapi.com/products
+
+        componand got mounted, fetch is still going on 
+
+        useEffect(callback function , dependencies array)
+
+        -> dependencies array -> 
+        1. [] -> useEffect will render only 1 time 
+        2. completely ignore -> useEffect will run on every rerender 
+        3. some dependencies inside the array -> whenever dependencies will change, useEffect will rerender 
