@@ -1,0 +1,41 @@
+
+Basic Recap.
+    State: 
+    Component: 
+    JSX: HTML + JS -> JS will go inside {}
+    useEffect: it a basic that take care side effects -> (API fetching, event listing)
+    useState: 
+    fetch: 
+
+
+    break down problem statment -> 
+    0. Folder Structure 
+    1. what are components 
+    2. what are pages
+    3. extra functionality 
+
+
+
+    LOs
+    1. CSS 
+    2. filtering
+    3. Searching
+    4. Sorting
+    5. Optimization (useMemo and useCallback)
+    6. useRef 
+
+
+// useMemo 
+    useMemo helps memorize (cache) the result of a caluculation so that it does not run again unless there are changes in 
+    the dependecies
+
+    useMemo(callbackFunction , [dependecies]) // it will return calculared momorized value -> reducing exponsive function call , while components is rendering , it will return computed value  
+
+    // useEffect -> side effects - after the components get render - will not return anything
+
+
+
+
+
+
+
