@@ -1,0 +1,68 @@
+
+Recap
+    CSS -> React
+    Sorting
+    Filtering
+    Searching 
+    useMemo -> introduce 
+
+LOs for today
+    useMemo
+    useCallback 
+    memo 
+    Routing -> Main LO for today 
+
+
+    whenever there is change is product array or in searchTerm or in OrderBy -> sorting and filtering should happen 
+    solution: useMemo -> it a hook that takes a callback function and return computed value, there will be a dependency array
+    until there is no change in dependency array it will not recompute same value 
+
+
+    whenever there is no change in child component and don't want to rereder that component -> need to use React.memo 
+
+    React.memo() -> compute the compount -> if there is any change in the props or state of child component then only it 
+    will rerender 
+
+
+    until function logic is not changing, we don't want to recreate the function 
+    useCallback -> it will prevent recreateion of function
+    
+    useCallback(callback , [dependency array])
+
+    useMemo -> avoid unwated function execution 
+    React.memo -> memo -> avoid unwanted component rerender
+    useCallback -> avoid recreation of function 
+
+    VDOM -> it will check if there is any change in the state of the component, if yes
+    it will compare with previous one and update the values -> component will rerender  
+
+    useMemo -> it compute the value -> and takes a dependency array, if there is no change in dependency
+             value will not be recomputed 
+
+
+
+    React -> SPA -> it will not reload 
+
+    there will be multiple pages, each page will have respective data 
+    will be moving accorss the pages 
+
+ <a href="/about" >
+
+
+ we should be able to move accross the pages 
+ -> Routing -> it will helps to move accross the pages 
+ react-router-dom -> its a liberary -> to handle routing 
+
+ we need to wrap our application in the 
+ BrowserRouter 
+
+ Routes -> we need to define all the pages as a route inside router
+ Route -> single page address 
+ Link -> path -> so that page don't get reload 
+
+
+ product page -> contains multiple products 
+ whenever click over a product -> product detail should come 
+
+ usePrams -> extract the Routes parameter 
+ 
