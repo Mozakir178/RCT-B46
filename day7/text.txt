@@ -1,0 +1,33 @@
+
+LOs for today
+useNavigate 
+
+I don't have any option to navigate to Products page 
+
+useNavigate
+    it will provide us option to move to a specific route based on condition 
+
+
+    path
+    home
+    about
+    home
+    Products
+    product/1
+
+    navigate(5) -> if possible it will move 5 step ahead if not, whatever is the last step possible 
+    navigate(-5) -> if possible it will move 5 step back, if not, whatever was the first page 
+
+
+
+useSearchParams:
+    useSearchParam is a react hook 
+    read the current query string (path= product?sort=asc) sort -> query string 
+    update the query string in the URL programetically 
+
+
+useLocation:
+    similar to useSearchParams it will provide query string with this other details we will be able see
+    path
+    hash
+    params 
