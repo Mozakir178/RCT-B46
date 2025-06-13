@@ -1,0 +1,67 @@
+
+Recap
+    useParams: access the paremeter from the url 
+    useNavigate: 
+    useSearchParams: query string -> read and modify -> ? whatever coming after ?, we will that using useSearchParams
+    useLocation: it will be giving us current path info: query string, path, hash, key
+    -> debug, keep record of all the routes hit by a user -> conditional rendering 
+
+
+LOs for today:
+    Pagination: your backend will provide api in such a way, that whenever you are asking for data
+                instead of giving you complete data, you will be getting data in parts 
+
+                10000 -> student record 
+
+                create a page -> all students 
+                10000 at same time can lead to laggy performance 
+
+                25 student per req -> 10000/25 pages -> let me know page number -> 25 based on page number 
+                page 1 -> initial 25 , page =2 -> next 25 students 
+
+                you are getting complete data -> we need to apply Pagination manually 
+                slice our main data array based on numberOfDataPerPage and currentPage 
+
+                show 6 item per page 
+                total pages = 4 
+
+                create a component -> Pagination( totalPage, currentPage, onPageChange):
+                
+                previous 1 2 3 4 Next -> onClick = onPageChange
+
+
+
+                ContextAPI 
+
+                Props: 
+
+                <Parent data = {someData} >
+
+                    <Child data = {data}>
+
+                        <GrandChild data = {data}> 
+
+                        </GrandChild>
+
+                    </Child>
+
+
+                </Parent>
+
+                only GrandChild need the data , Child don't need -> unwanted data -> props drilling 
+
+                Global Context 
+
+                Radio Station -> tune in -> respective channel 
+
+                GrandChild -> tune in -> respective channel 
+
+                -> create the Context -> whatever data you share across the components -> createContext() 
+                -> provide this Context to the Provider -> ThemeContext 
+                -> Wrap your app in the Provider 
+                -> access the Context data anywhere in your application -> useContext 
+
+                themeContext -> create folder context -> ThemeContext
+
+                createContext -> it will create a global state 
+                useContext -> it will help us to access the global state 
