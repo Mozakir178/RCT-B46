@@ -1,0 +1,26 @@
+
+
+1. Break down the problem into routes and features 
+2. Set up folder structure first 
+3. Start with dummy data and create basic layout 
+4. Build one feature at a time 
+5. Use Context API to build global state if needed
+6. keep building components and keep it reusable 
+7. state, data, render update 
+
+
+pages: 
+    Home
+    Login
+    Products
+    ProductDetails
+    NotFound
+
+
+components:
+    Pagination
+    Navbar
+
+Context 
+    AuthContext
+    ThemeContext 
