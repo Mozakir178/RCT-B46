@@ -1,0 +1,91 @@
+
+React -> Frontend 
+Backend -> React is not responsible 
+Backend Functionalit -> External resource 
+Backend team -> they will be writing the backend code, you as a frontend developer, consuming those API
+
+fakestoreapi -> we are getting all product details 
+
+you don't have backend support -> either you don't know the backend or there is backend team 
+
+service provider -> rent 
+
+firebase -> CRUD operations 
+        : Firebase is a Backend as a Service (BaaS)
+        many backend functionality normally needed for any project 
+        realtime database -> mongoDB -> NoSQL  -> Node -> database(MongoDB) -> Java (SQL -> MySQL Oracle Postgrase)
+        API testing 
+        Hosting 
+        Authentication
+        Storage
+        Analytics 
+
+Authentication: to varify? user 
+    you will be taking data from the user (login form)
+    you will be matching this data with users data present in the database 
+    hashing the password -> 123456 encrypt 
+    varifying these details 
+    details are correct -> send them to dashboard else ask them to provide correct details 
+
+    firebase -> everything related to backend -> if details provided by user are correct then firebase 
+    will provide user credentials else error message (Promise)
+
+
+
+
+firebase setup:
+    go to firebase console (google account)
+    add Project -> name -> some other details about project -> create project 
+    test mode -> database not the foucus 
+
+    go to console 
+    get started with the firebase project
+    give name and accept term and condtion and continue 
+    disable google analytics and create project 
+    click over web(</>) icon
+    create app 
+    it will give you basic setup 
+    click over Authentication
+    click get started button
+    select email/password
+    enable this 
+    save 
+    create firebase.js -> communicate with firebase 
+    will need firebase library npm install firebase 
+    api key -> our react app will communicate with firebase -> api key varification 
+
+
+
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "firebase/app";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+    apiKey: "AIzaSyC36bpxcA6pinYLcxkuEETVBEorD0C3oQQ",
+    authDomain: "fir-auth-99725.firebaseapp.com",
+    projectId: "fir-auth-99725",
+    storageBucket: "fir-auth-99725.firebasestorage.app",
+    messagingSenderId: "784467985876",
+    appId: "1:784467985876:web:d0ae36d7184b867ee3c241"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+
+    // functions provided by firebase auth 
+    1. createUserWithEmailAndPassword(auth , email , password) -> to create a new user (singup)
+    2. signInWithEmailAndPassword(auth, email,password) -> login/signup 
+    3. signOut(auth) -> logout 
+    4. onAuthStateChange(auth , callback) -> Similar to Mount-> whenever state is changing it will be notified by this function  
+
+
+    Context API -> all the things will be keeping in auth 
+
+    auth -> it is an object -> helping us to communicate with firebase and provide login logout and signi
+
+
+
+
