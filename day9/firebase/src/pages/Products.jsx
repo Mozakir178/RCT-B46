@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import Pagination from "../components/Pagination";
+import { auth } from "../firebase";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -73,7 +74,7 @@ const Products = () => {
       </select>
       </div>
 
-       <Pagination currentPage={page} totalPages={totalPages} onPageChange={handlePageChange} />
+      
       <div
         style={{
           display: "grid",
@@ -89,21 +90,21 @@ const Products = () => {
               border: "1px solid #ccc",
               padding: "1rem",
               borderRadius: "6px",
+              
             }}
           >
             <img
               src={prod.thumbnail}
               alt={prod.title}
-              width="100%"
-              height="150px"
+              width="40%"
+              height="150px" style={{margin: "auto", display: "block"}}
             />
-            <Link Link to={`/products/${prod.id}`}><h4>{prod.title}</h4> </Link>
-            <p>₹ {prod.price}</p>
+            <Link style={{margin: "auto" , display: "block" , width: "fit-content"}} Link to={`/products/${prod.id}`}><h4>{prod.title}</h4> </Link>
+            <p style={{margin: "auto" , display: "block" , width: "fit-content"}}>₹ {prod.price}</p>
           </div>
         ))}
       </div>
-
-     
+      <Pagination currentPage={page} totalPages={totalPages} onPageChange={handlePageChange} />
     </div>
   );
 };

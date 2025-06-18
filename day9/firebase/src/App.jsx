@@ -35,8 +35,8 @@ function App() {
               <ProductDetails/>
             </PrivateRoute>
           }/>
-          <Route path='*' element={<NotFound/>}/>
           <Route path="/signin" element = {<Signup/>} />
+          <Route path='*' element={<NotFound/>}/>
         </Routes>
       </div>
     </>
