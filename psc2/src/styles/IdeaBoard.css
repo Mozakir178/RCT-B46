@@ -1,0 +1,41 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #fafafa;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+
+#root {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+}
+
+.idea-form, .filters, .pagination {
+  margin: 1rem 0;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.idea-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4-column grid */
+  gap: 1rem;
+  width: 100%;
+}
+
+.idea-card {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: white;
+}
+
+.ai-highlight h3 {
+  color: blue;
+  font-weight: bold;
+}
