@@ -1,0 +1,290 @@
+
+
+components -> props -> pass the data the components as arguments 
+
+Parent -> data 
+Child -> need data , we use pass data as props 
+
+const data = [] ;
+<Parent >
+
+<Child data= {data}>
+    // we can access data 
+    <GrandChild data = {data}> 
+    </GrandChild>
+</Child>
+
+<Child2>
+</Child2>
+
+
+</Parent> 
+
+State uplifting 
+when two or more child need same data, then instead of holding data in each components, we uplift the state  of the data to parent 
+
+
+
+function Child({data}){
+    // consume data as a props here 
+}
+
+prop drilling 
+    context API: global context -> React
+
+
+according to context API, we were holding the state globally, 
+and every components can directly access this state using useContext 
+
+
+
+Redux: it will also prevent the props drilling and store data globally 
+
+
+a application -> you need to manage theme -> themeToggle functionality -> 1 context as ThemeContext 
+-> auth -> AuthContext -> card -> CardContext 
+
+
+Redux -> Does not matter how many state you need to manage -> all these state should manage through single sorce 
+        -> single source of truth 
+        a plane object holding all the data that need to be share through app 
+
+
+
+you need to take care of 1 state only -> theme state -> context API -> smaller application 
+as app grows then we should go for redux 
+
+
+Redux: 
+    store: a plain object containing all the data or state that need to be shared accross the application, you will never modify
+          data or state directly inside store 
+    action: this will a object that will let us know what is change we want to make 
+    dispatch: it will take this changes to someone who will be responsible for making those changes 
+    useSelecter() : giving the data 
+    reducer: this will be responsible for making the changes in the store data 
+
+
+
+    You ordered a Pizza
+    kitchen (store)   {Pizza}
+
+    You want to make some changes in the pizza -> Onion -> do not want ->  write down the changes you want make 
+    { toppings without onion} -> action 
+    call waiter -> give this instruction to him -> waiter will take this instructions to chef waiter (dispatch)
+    chef will make changes in the pizza -> chef (reducer) 
+    updated pizza will be availble in the kitch (store)
+
+
+
+    
+
+   
+   redux -> 2008 
+   react-redux -> it is implimenting in react 
+
+create a counter app with the help of redux 
+
+    count -> state 
+
+    action: increase , decrease, reset 
+
+    dispatch: will take above mentioned actions to the reducer
+
+    reducer: it will be responsible for making changes in the actual count state 
+
+
+
+
+Redux -> 
+    multiple piece of data -> all the data should be stored at a single place 
+    it works as centralised storage for data 
+    single source of truth 
+
+store = {
+    auth: {isAuthenticated, user}
+    theme: {theme, toggle}
+    card: {items , add, remove}
+}
+
+
+
+shop: there are multiple items -> mens clothing, books, eletronics, grocery 
+shop {
+    mens clothing {
+    shirt , pants , jacket , t-shirt
+    }
+
+    books {
+        romance , fantacy , drama, Sci-fi , Horror , educational novel
+    }
+
+    eletronics {
+
+    }
+
+    grocery {
+
+}
+
+}
+
+
+a customer comes to the shop -> what should happen when customer ask for discount : action for discount
+
+whoever is working (chotu) in the shop: -> check what are the things that should happen when customer asking for discount : 
+
+chotu will take the requiment of the customer : to the shop owner (seth ji) : seth ji will give discount to the customer
+
+will take remaining amount after the discount: and update remaining quantity
+
+purchase in the bulk and put it in the shop 
+
+
+
+many things was already sorted in the redux
+
+we are difining the actions from our side , 
+
+second: what we pass to the dispatch? action as plain object 
+
+will you be able to perform fetch 
+
+let data = [] ;
+fetch("api").then(re => re.json()).then(res -> data = res) ;
+
+dispatch(data) // can't perform async task 
+
+// middlewares -> redux-thunk 
+
+we are creating reducers, actions and all manually, whenver there is chance of conflicts
+
+
+
+
+fun(a,b=10) {
+    return a+b
+}
+
+fun(10,20);
+fun(20);
+
+
+updated version: redux tool kit 
+createStore -> configureStore
+
+
+lets not create reducer and actions seprately 
+Slice -> createSlice() ->  combination of action and reducer in 1 file 
+
+Handle Async Flow -> createAsyncThunk() -> to take care of async task such featching the data or performing promises
+
+
+
+
+data -> getAllProduct -> giving you all the data -> pagination
+
+api -> https://myapi.com/getAllProducts?limit=10&&skip=?
+api -> https://myapi.com/getAllProducts -> frontend -> not the right way
+
+
+const [currPage, setCurrPage] = useState(1);
+
+const skip = currPage-1 * itemPerpage ; 
+https://myapi.com/getAllProducts?limit=itemPerpage&skip=skip
+
+
+
+
+Redux 
+Redux Toolkit 
+
+dispatch only takes plain object -> action 
+
+action should always be a plain object: {key : value}
+
+obj = {"type" : "increament"}
+
+dispatch(obj)
+
+method = fetch("api") ;
+dispatch(method)
+
+
+fetch the data and keep the data in the store 
+dummy server -> 10 users data 
+store this data in userReducer 
+
+intialState = {
+    users = [] ;
+    error = null
+}
+
+reducer {
+    case data_fetched: return (state , action) => {..state, state.users = action.payload.data}
+    case failed: return (state, action) => {...state , state.error = action.payload.err}
+}
+
+//changes in the state can't be done directly, it will be taken care by reducer -> action need to be pass to this
+reducer through dispatch only -> fetch can't be done through plain object 
+
+// after we fatch the data empty users object should be replaced with the data we fetch
+
+Thunk -> a function that return another function
+
+
+dispatch({contains action here }) ;
+
+() ; // function call 
+
+lets create a function -> perform whatever you want to perform, based on the result you are getting, send that result
+to reducer through dispatch
+
+
+async function getData() {
+dispatch(type: "waiting" )
+try{
+api = fakestoreapi.com/products 
+
+let res = await fetch(api) ;
+let data = await res.json() ;
+// create a plain object type will be data_fetched payload will be our data 
+//your action defined in the reducer for successful response
+return dispatch({type: "data_fetched" , payload: {data}})
+}
+catch(err => {
+    return dispatch(type: "data_fetched_failed" , payload: {err.message})
+})
+}
+
+//3 possibilities -> pending, successful, rejected 
+
+
+// when we create store, it take care of sync task , getData is async task 
+// applyMiddleware -> thunk 
+
+
+
+
+get the data from api and keep the data in the store 
+
+https://dummyjson.com/users?limit=5 -> we will get the data from this api, and will store this data in 
+one of the reducer -> userReducer
+
+when start fetching -> create one action for waiting
+when data is recived -> create fetch successful, and will get the data 
+when err  -> create fetch failed, and store the error 
+
+reducer -> 3 action 
+
+
+redux - toolkit 
+createAsyncThunk -> everything same as previous thank 
+// it will autometically take care of all 3 situation 
+pending , fullfilled , failed 
+
+you do not need to apply middlewares manually 
+{rejectWithValue} => let you handle and pass manual error messages 
+-> Promise 3 , 1 pending , successful , rejected
+api -> createAsyncThunk 
+
+extraReducer -> addCase based on all 3 situation .successful , .rejected, . pending 
