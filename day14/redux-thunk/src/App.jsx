@@ -3,7 +3,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchUsers } from './redux/thunk'
+// import { fetchUsers } from './redux/thunk' // we were importing wrong fetchUsers function
+import { fetchUsers } from './redux-toolkit/userSlice'
 import { increament } from './redux-toolkit/userSlice'
 
 function App() {
