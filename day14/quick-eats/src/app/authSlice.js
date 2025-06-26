@@ -1,6 +1,7 @@
 // to create 3 async function 
-import {createAsyncThunk, createSlice, miniSerializeError} from "@reduxjs/toolkit"
-import { createUserWithEmailAndPassword } from "firebase/auth"
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit"
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth"
+import {auth} from "../utils/firebase"
 
 //createAsyncThunk for Signup 
 export const ragisterUser = createAsyncThunk(

@@ -1,7 +1,7 @@
 // email and password, call ragister 
 
 import { useState } from "react"
-import {useDispatch } from "react-redux"
+import {useDispatch , useSelector } from "react-redux"
 import { ragisterUser } from "../app/authSlice";
 
 
@@ -16,7 +16,7 @@ const Ragister = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
             //ragisterUser 
-        await dispatch(ragisterUser(email,password)) ;
+        await dispatch(ragisterUser({email,password})) ;
         if(user){
             //user is not null
             // navigate
@@ -36,3 +36,5 @@ const Ragister = () => {
         </form>
     </>)
 }
+
+export default Ragister ;

@@ -1,7 +1,7 @@
 // email and password, call ragister 
 
 import { useState } from "react"
-import {useDispatch } from "react-redux"
+import {useDispatch , useSelector } from "react-redux"
 import { loginUser } from "../app/authSlice";
 
 
@@ -16,7 +16,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
             //ragisterUser 
-        await dispatch(loginUser(email,password)) ;
+        await dispatch(loginUser({email,password})) ;
         if(user){
             //user is not null
             // navigate
@@ -39,3 +39,5 @@ const Login = () => {
         {loading && <p>Loading.... </p>}
     </>)
 }
+
+export default Login ;
