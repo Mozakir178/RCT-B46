@@ -60,9 +60,8 @@ Each pet entry should follow this structure:
 
 ---
 
-### 🧪 Bonus (Optional Enhancements)
+### 🧪 Bonus (Optional Enhancements)(only if you are able to complete above functionality early)
 - Add a dropdown to select pet type
 - Sort pets by creation date (latest first)
-- Show toast notifications for success or error messages
-
+- Show 6 pets per page
 ---
